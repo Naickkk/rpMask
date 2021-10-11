@@ -1,0 +1,4 @@
+name: Mask
+version: '${project.version}'
+main: it.naick.mask.Mask
+authors: [ Naick ]
