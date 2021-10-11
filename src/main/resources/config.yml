@@ -1,0 +1,10 @@
+license-key: ""
+item:
+  displayname: "&6§l| §eMaschera §6§l|"
+  material: "SULPHUR"
+  lore:
+    - ""
+    - "&7§o(( Clicca destro per indossare ))"
+    - ""
+config:
+  chat: "&f&lAnonimo&8: &7%message%"

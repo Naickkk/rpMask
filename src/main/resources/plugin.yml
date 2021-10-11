@@ -2,3 +2,7 @@ name: Mask
 version: '${project.version}'
 main: it.naick.mask.Mask
 authors: [ Naick ]
+commands:
+  mask:
+    permission: masks.admin
+    permission-message: "§cNon hai i permessi per utilizzare questo comando"
