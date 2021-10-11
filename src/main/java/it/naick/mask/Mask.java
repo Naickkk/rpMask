@@ -59,7 +59,6 @@ public final class Mask extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-
     }
 
     private void registerListeners() {
