@@ -2,11 +2,11 @@ package it.naick.mask;
 
 import com.google.common.collect.Lists;
 import it.naick.mask.commands.MaskCommand;
-import it.naick.mask.license.AdvancedLicense;
 import it.naick.mask.listeners.onChat;
 import it.naick.mask.listeners.onInteract;
 import it.naick.mask.listeners.onInventoryClick;
 import it.naick.mask.listeners.onJoin;
+import it.naick.mask.ulicense.uLicense;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -36,6 +36,12 @@ public final class Mask extends JavaPlugin {
         registerCommands();
         registerListeners();
 
+        if (!new uLicense(this, getConfig().getString("license-key"), "http://185.25.207.196:8080/api/client", "7801b1887db52cf56e2bc74349da13f731cb8343").verify()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
+
         ItemStack itemStack = new ItemStack(Material.valueOf(this.getConfig().getString("item.material")));
         ItemMeta itemMeta = itemStack.getItemMeta();
 
@@ -50,10 +56,6 @@ public final class Mask extends JavaPlugin {
         itemStack.setItemMeta(itemMeta);
 
         mask = itemStack;
-
-        if (!new AdvancedLicense(getConfig().getString("license-key"), "https://unfathomed-foods.000webhostapp.com/verify.php", this).register())
-            Bukkit.getPluginManager().disablePlugin(this);
-
     }
 
     @Override
